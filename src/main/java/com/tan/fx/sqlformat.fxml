@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.media.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.web.*?>
+<?import java.lang.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="p1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tan.fx.Sqlformat">
+   <top>
+      <HBox alignment="CENTER" prefHeight="30.0" prefWidth="649.0" BorderPane.alignment="CENTER">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="格式化工具CYZZ" textAlignment="CENTER" wrappingWidth="634.240234375">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+         </children></HBox>
+   </top>
+   <center>
+      <VBox fx:id="p2" prefHeight="1000.0" prefWidth="620.0" BorderPane.alignment="TOP_CENTER">
+         <children>
+            <GridPane fx:id="publicGPane" nodeOrientation="RIGHT_TO_LEFT" prefHeight="36.0" prefWidth="635.0" style="-fx-background-color: #F0F8FF;">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="250.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="61.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="149.0" minWidth="10.0" prefWidth="149.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <ComboBox fx:id="font" maxHeight="-Infinity" onAction="#fontCombox" prefHeight="23.0" prefWidth="60.0" promptText="12" />
+                        <ColorPicker fx:id="colorPicker" nodeOrientation="LEFT_TO_RIGHT" onAction="#colorPicker" prefHeight="23.0" prefWidth="90.0" promptText="颜色">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </HBox.margin></ColorPicker>
+                     </children>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets left="5.0" right="5.0" />
+               </padding>
+            </GridPane>
+            <TabPane fx:id="p3" maxHeight="1.7976931348623157E308" prefHeight="569.0" prefWidth="616.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab fx:id="p4" text="SQL">
+                     <content>
+                        <VBox fx:id="p7" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="584.0" prefWidth="640.0">
+                           <children>
+                              <GridPane fx:id="G7_1" alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" prefHeight="31.0" prefWidth="630.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+<!--                                    <Button fx:id="formatButtonAnd" mnemonicParsing="false" onAction="#formatAnd" prefHeight="23.0" prefWidth="80.0" text="格式化AND" GridPane.columnIndex="2" />-->
+                                    <Button fx:id="formatButton" mnemonicParsing="false" onAction="#format" prefHeight="23.0" prefWidth="80.0" text="格式化" GridPane.columnIndex="1" />
+                                    <Button fx:id="compressButton" mnemonicParsing="false" onAction="#compress" prefHeight="23.0" prefWidth="80.0" text="压缩" />
+                                    <Button fx:id="clearPasteButton" mnemonicParsing="false" onAction="#clearPaste" prefHeight="23.0" prefWidth="80.0" text="清除&amp;粘贴" GridPane.columnIndex="4" />
+                                    <Button fx:id="clearButton" mnemonicParsing="false" onAction="#clear" prefHeight="23.0" prefWidth="80.0" text="清除" GridPane.columnIndex="5" />
+                                 </children>
+                              </GridPane>
+                              <TextArea fx:id="inputTextArea" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="150.0" prefWidth="625.0" promptText="请输入">
+                                 <font>
+                                    <Font name="Consolas" size="12.0" />
+                                 </font>
+                              </TextArea>
+                              <GridPane fx:id="G7_2" alignment="TOP_CENTER" maxHeight="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="625.0">
+                                 <children>
+                                    <Button fx:id="changeButton" maxHeight="-Infinity" mnemonicParsing="false" onAction="#change" prefHeight="23.0" prefWidth="80.0" text="调换" GridPane.columnIndex="1" />
+                                    <Button fx:id="copyButton" maxHeight="-Infinity" mnemonicParsing="false" onAction="#copy" prefHeight="23.0" prefWidth="80.0" text="复制结果" />
+                                    <ChoiceBox fx:id="choiceBox" onDragDetected="#choiceBox" prefHeight="23.0" prefWidth="80.0" GridPane.columnIndex="2" />
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+                                    <ColumnConstraints halignment="LEFT" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="80.0" prefWidth="80.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="66.0" minWidth="9.0" prefWidth="27.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="317.0" minWidth="10.0" prefWidth="154.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="305.0" minWidth="10.0" prefWidth="45.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="305.0" minWidth="10.0" prefWidth="152.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                              <TextArea fx:id="outputTextArea" prefHeight="314.0" prefWidth="630.0" promptText="转换结果" translateY="-5.0">
+                                 <font>
+                                    <Font name="Consolas" size="12.0" />
+                                 </font>
+                              </TextArea>
+                           </children>
+                           <padding>
+                              <Insets left="5.0" right="5.0" />
+                           </padding>
+                        </VBox>
+                     </content>
+                  </Tab>
+                <Tab text="JSON">
+                     <content>
+                        <ImageView fx:id="img" fitHeight="535.0" fitWidth="639.0" pickOnBounds="true" preserveRatio="true" />
+                     </content></Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <VBox alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="640.0" BorderPane.alignment="CENTER_RIGHT">
+         <children>
+            <Text opacity="0.56" strokeType="OUTSIDE" strokeWidth="0.0" text="https://blog.csdn.net/zhan107876" textAlignment="RIGHT" wrappingWidth="153.240234375">
+               <font>
+                  <Font size="9.0" />
+               </font>
+               <VBox.margin>
+                  <Insets right="5.0" />
+               </VBox.margin>
+            </Text>
+         </children>
+      </VBox>
+   </bottom>
+</BorderPane>
