@@ -1,5 +1,8 @@
 package com.tan.fx;
 
+import com.tan.fx.controller.JsonController;
+import com.tan.fx.controller.RootController;
+import com.tan.fx.controller.SqlController;
 import com.tan.fx.service.ChoiceChangeListener;
 import com.tan.fx.service.WinHeightChangeListener;
 import javafx.application.Application;
@@ -17,22 +20,51 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        URL location = getClass().getResource("/sqlformat.fxml");
+//        URL location = getClass().getResource("/sqlformat_old.fxml");
+        URL location = getClass().getResource("/sqlformatroot.fxml");
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(location);
         fxmlLoader.setBuilderFactory(new JavaFXBuilderFactory());
         Parent root = fxmlLoader.load();
-        //如果使用 Parent root = FXMLLoader.load(...) 静态读取方法，无法获取到Controller的实例对象
+        RootController rootController = fxmlLoader.getController();
+
+        // 设置图标
+        setIcons(primaryStage);
+        primaryStage.setTitle("格式化工具CYZZ");
+
+        Scene scene = new Scene(root);
+        //加载css样式
+
+        primaryStage.setScene(scene);
+
+
+        //Controller中写的初始化方法
+        primaryStage.show();
+
+
+        /**
+         * 高度改变的事件
+         * 动态改变窗口高度
+         */
+        URL location1 = getClass().getResource("/sqlformatsql.fxml");
+        FXMLLoader fxmlLoader1 = new FXMLLoader();
+        fxmlLoader1.setLocation(location1);
+        fxmlLoader1.setBuilderFactory(new JavaFXBuilderFactory());
+        fxmlLoader1.load();
+        SqlController sqlController = fxmlLoader1.getController();
+
+        scene.getWindow().heightProperty().addListener(new WinHeightChangeListener(rootController, sqlController));
+    }
+
+    private void setIcons(Stage primaryStage) {
         try {
             // 设置图标
             String path = "file:" + System.getProperty("user.dir");
             System.out.println("user.dir======" + path);
             primaryStage.getIcons().add(new Image(path + "/tan1.bmp"));
-
         } catch (Exception e) {
 
         }
-
         try {
             // 设置图标
             ClassLoader loader = Thread.currentThread().getContextClassLoader();
@@ -42,24 +74,6 @@ public class Main extends Application {
         } catch (Exception e) {
             System.out.println("getContextClassLoader======Exception");
         }
-
-        primaryStage.setTitle("格式化工具CYZZ");
-
-        Scene scene = new Scene(root);
-        //加载css样式
-        //scene.getStylesheets().add(getClass().getResource("style1.css").toExternalForm());
-        primaryStage.setScene(scene);
-        Sqlformat controller = fxmlLoader.getController();   //获取Controller的实例对象
-
-        //Controller中写的初始化方法
-        primaryStage.show();
-
-        /**
-         * 高度改变的事件
-         * 动态改变窗口高度
-         */
-        scene.getWindow().heightProperty().addListener(new WinHeightChangeListener(controller));
-        controller.getChoiceBox().getSelectionModel().selectedItemProperty().addListener(new ChoiceChangeListener(controller));
     }
 
 

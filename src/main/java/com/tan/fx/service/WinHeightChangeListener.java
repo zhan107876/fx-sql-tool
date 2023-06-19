@@ -1,6 +1,7 @@
 package com.tan.fx.service;
 
-import com.tan.fx.Sqlformat;
+import com.tan.fx.controller.RootController;
+import com.tan.fx.controller.SqlController;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Tab;
@@ -18,28 +19,29 @@ import javafx.scene.layout.VBox;
  */
 public class WinHeightChangeListener implements ChangeListener<Number> {
 
-    private Sqlformat controller;
-    public WinHeightChangeListener(Sqlformat controller) {
-        this.controller = controller;
+    private RootController rootController;
+    private SqlController sqlController;
+
+    public WinHeightChangeListener(RootController rootController, SqlController sqlController) {
+        this.rootController = rootController;
+        this.sqlController = sqlController;
     }
 
     @Override
     public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
         System.out.println("当前高度：" + newValue.doubleValue());
-        TextArea outputTextArea = null;
-//        TextArea outputTextArea = controller.getOutputTextArea();
-        TextArea inputTextArea = controller.getInputTextArea();
+//        TextArea outputTextArea = null;
+        TextArea outputTextArea = sqlController.getOutputTextArea();
+        TextArea inputTextArea = sqlController.getInputTextArea();
 
-        BorderPane p1 = controller.getP1();
-        VBox p2 = controller.getP2();
-        TabPane p3 = controller.getP3();
-        Tab p4 = controller.getP4();
-        BorderPane p5 = controller.getP5();
-        BorderPane p6 = controller.getP6();
-        VBox p7 = controller.getP7();
-        GridPane publicGPane = controller.getPublicGPane();
-        GridPane g7_1 = controller.getG7_1();
-        GridPane g7_2 = controller.getG7_2();
+        BorderPane p1 = rootController.getP1();
+        VBox p2 = rootController.getP2();
+        TabPane p3 = rootController.getP3();
+        Tab p4 = rootController.getP4();
+        VBox p7 = sqlController.getP7();
+        GridPane publicGPane = rootController.getPublicGPane();
+        GridPane g7_1 = sqlController.getG7_1();
+        GridPane g7_2 = sqlController.getG7_2();
 
         p2.setPrefHeight(newValue.doubleValue());
         publicGPane.setPrefHeight(36);

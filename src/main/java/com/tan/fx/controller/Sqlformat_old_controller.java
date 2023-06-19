@@ -1,4 +1,4 @@
-package com.tan.fx;
+package com.tan.fx.controller;
 
 import com.alibaba.druid.sql.SQLUtils;
 import com.tan.fx.utils.StringUtils;
@@ -34,7 +34,7 @@ import java.util.regex.Pattern;
  * @Version 1.0
  */
 @Data
-public class Sqlformat implements Initializable {
+public class Sqlformat_old_controller implements Initializable {
 
     /**
      * 输入输出
@@ -111,7 +111,7 @@ public class Sqlformat implements Initializable {
      * @param actionEvent
      */
     public void format(ActionEvent actionEvent) {
-        Sqlformat.format(this, actionEvent);
+        Sqlformat_old_controller.format(this, actionEvent);
     }
 
     /**
@@ -119,7 +119,7 @@ public class Sqlformat implements Initializable {
      *
      * @param actionEvent
      */
-    public static void format(Sqlformat controller, ActionEvent actionEvent) {
+    public static void format(Sqlformat_old_controller controller, ActionEvent actionEvent) {
 
         String text = controller.inputTextArea.getText();
         if (StringUtils.isEmpty(text)) {
@@ -200,7 +200,7 @@ public class Sqlformat implements Initializable {
      * @param actionEvent
      */
     public void colorPicker(ActionEvent actionEvent) {
-        String value = Sqlformat.toHexString(colorPicker.getValue());
+        String value = Sqlformat_old_controller.toHexString(colorPicker.getValue());
         String style = "-fx-text-fill: " + value.toString();
         inputTextArea.setStyle(style);
         outputTextArea.setStyle(style);
@@ -252,12 +252,12 @@ public class Sqlformat implements Initializable {
     /**
      * 格式化
      */
-    public static void choiceBoxChange(Sqlformat controller, String value) {
+    public static void choiceBoxChange(Sqlformat_old_controller controller, String value) {
         if (value == null) {
             value = (String) controller.getChoiceBox().getSelectionModel().getSelectedItem();
         }
 
-        if (value.equals(Sqlformat.FieldSeparation)) {
+        if (value.equals(Sqlformat_old_controller.FieldSeparation)) {
             String text = controller.getOutputTextArea().getText();
             // 工具先格式化
             String formatStr = SQLUtils.formatMySql(text);
@@ -293,7 +293,7 @@ public class Sqlformat implements Initializable {
                 controller.getOutputTextArea().setText(formatStr);
             }
 
-        } else if (value.equals(Sqlformat.FieldSeparation)) {
+        } else if (value.equals(Sqlformat_old_controller.FieldSeparation)) {
 
         }
     }

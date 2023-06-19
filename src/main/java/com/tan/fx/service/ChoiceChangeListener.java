@@ -1,6 +1,6 @@
 package com.tan.fx.service;
 
-import com.tan.fx.Sqlformat;
+import com.tan.fx.controller.SqlController;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 
@@ -12,18 +12,18 @@ import javafx.beans.value.ObservableValue;
  */
 public class ChoiceChangeListener implements ChangeListener<String> {
 
-    private Sqlformat controller;
-    public ChoiceChangeListener(Sqlformat controller) {
+    private SqlController controller;
+    public ChoiceChangeListener(SqlController controller) {
         this.controller = controller;
     }
 
     @Override
     public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
         String value = observable.getValue();
-        if (value.equals(Sqlformat.FieldSeparation)) {
-            Sqlformat.choiceBoxChange(controller, value);
-        }else if(value.equals(Sqlformat.NotSeparation)){
-            Sqlformat.format(controller, null);
+        if (value.equals(SqlController.FieldSeparation)) {
+            SqlController.choiceBoxChange(controller, value);
+        }else if(value.equals(SqlController.NotSeparation)){
+            SqlController.format(controller, null);
         }
     }
 }

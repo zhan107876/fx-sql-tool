@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<BorderPane fx:id="p1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="640.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.tan.fx.controller.RootController">
+    <top>
+        <HBox alignment="CENTER" prefHeight="30.0" prefWidth="649.0" BorderPane.alignment="CENTER">
+            <children>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="格式化工具CYZZ" textAlignment="CENTER"
+                      wrappingWidth="634.240234375">
+                    <font>
+                        <Font size="16.0"/>
+                    </font>
+                </Text>
+            </children>
+        </HBox>
+    </top>
+    <center>
+        <VBox fx:id="p2" prefHeight="1000.0" prefWidth="620.0" BorderPane.alignment="TOP_CENTER">
+            <children>
+                <GridPane fx:id="publicGPane" nodeOrientation="RIGHT_TO_LEFT" prefHeight="36.0" prefWidth="635.0"
+                          style="-fx-background-color: #F0F8FF;">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="250.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="61.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="149.0" minWidth="10.0" prefWidth="149.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                            <children>
+                                <ComboBox fx:id="font" maxHeight="-Infinity" onAction="#fontCombox" prefHeight="23.0"
+                                          prefWidth="60.0" promptText="12"/>
+                                <ColorPicker fx:id="colorPicker" nodeOrientation="LEFT_TO_RIGHT" onAction="#colorPicker"
+                                             prefHeight="23.0" prefWidth="90.0" promptText="颜色">
+                                    <opaqueInsets>
+                                        <Insets/>
+                                    </opaqueInsets>
+                                    <HBox.margin>
+                                        <Insets left="5.0" right="5.0"/>
+                                    </HBox.margin>
+                                </ColorPicker>
+                            </children>
+                        </HBox>
+                    </children>
+                    <padding>
+                        <Insets left="5.0" right="5.0"/>
+                    </padding>
+                </GridPane>
+                <TabPane fx:id="p3" maxHeight="1.7976931348623157E308" prefHeight="569.0" prefWidth="616.0"
+                         tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                        <Tab fx:id="p4" text="SQL">
+                            <content>
+                                <!--这里的命名需要注意：在RootController 注入的 子Controller 变量名= fx:id + Controller-->
+                                <fx:include fx:id="sql"  source="sqlformatsql.fxml"/>
+                            </content>
+                        </Tab>
+                        <Tab text="JSON">
+                            <content>
+                                <fx:include fx:id="json" source="sqlformatjson.fxml"/>
+                            </content>
+                        </Tab>
+                    </tabs>
+                </TabPane>
+            </children>
+        </VBox>
+    </center>
+    <bottom>
+        <VBox alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="640.0" BorderPane.alignment="CENTER_RIGHT">
+            <children>
+                <Text opacity="0.56" strokeType="OUTSIDE" strokeWidth="0.0" text="https://blog.csdn.net/zhan107876"
+                      textAlignment="RIGHT" wrappingWidth="153.240234375">
+                    <font>
+                        <Font size="9.0"/>
+                    </font>
+                    <VBox.margin>
+                        <Insets right="5.0"/>
+                    </VBox.margin>
+                </Text>
+            </children>
+        </VBox>
+    </bottom>
+</BorderPane>

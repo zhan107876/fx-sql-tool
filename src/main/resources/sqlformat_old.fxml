@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<BorderPane fx:id="p1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tan.fx.Sqlformat">
+
+<BorderPane fx:id="p1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tan.fx.controller.Sqlformat_old_controller">
    <top>
       <HBox alignment="CENTER" prefHeight="30.0" prefWidth="649.0" BorderPane.alignment="CENTER">
          <children>
@@ -49,7 +50,7 @@
                   <Insets left="5.0" right="5.0" />
                </padding>
             </GridPane>
-            <TabPane fx:id="p3" maxHeight="1.7976931348623157E308" prefHeight="569.0" prefWidth="616.0" tabClosingPolicy="UNAVAILABLE">
+            <TabPane fx:id="p3" maxHeight="1.7976931348623157E308" prefHeight="569.0" prefWidth="616.0" tabClosingPolicy="UNAVAILABLE" >
               <tabs>
                 <Tab fx:id="p4" text="SQL">
                      <content>
@@ -62,8 +63,8 @@
                                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
                                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
                                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+                                    <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+                                    <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
                                 </columnConstraints>
                                 <rowConstraints>
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -72,8 +73,8 @@
 <!--                                    <Button fx:id="formatButtonAnd" mnemonicParsing="false" onAction="#formatAnd" prefHeight="23.0" prefWidth="80.0" text="格式化AND" GridPane.columnIndex="2" />-->
                                     <Button fx:id="formatButton" mnemonicParsing="false" onAction="#format" prefHeight="23.0" prefWidth="80.0" text="格式化" GridPane.columnIndex="1" />
                                     <Button fx:id="compressButton" mnemonicParsing="false" onAction="#compress" prefHeight="23.0" prefWidth="80.0" text="压缩" />
-                                    <Button fx:id="clearPasteButton" mnemonicParsing="false" onAction="#clearPaste" prefHeight="23.0" prefWidth="80.0" text="清除&amp;粘贴" GridPane.columnIndex="4" />
-                                    <Button fx:id="clearButton" mnemonicParsing="false" onAction="#clear" prefHeight="23.0" prefWidth="80.0" text="清除" GridPane.columnIndex="5" />
+                                    <Button fx:id="clearPasteButton" mnemonicParsing="false" onAction="#clearPaste" prefHeight="23.0" prefWidth="80.0" text="清除&amp;粘贴" GridPane.columnIndex="5" />
+                                    <Button fx:id="clearButton" mnemonicParsing="false" onAction="#clear" prefHeight="23.0" prefWidth="80.0" text="清除" GridPane.columnIndex="6" />
                                  </children>
                               </GridPane>
                               <TextArea fx:id="inputTextArea" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="150.0" prefWidth="625.0" promptText="请输入">
@@ -114,7 +115,58 @@
                   </Tab>
                 <Tab text="JSON">
                      <content>
-                        <ImageView fx:id="img" fitHeight="535.0" fitWidth="639.0" pickOnBounds="true" preserveRatio="true" />
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <GridPane fx:id="G7_11" alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" prefHeight="31.0" prefWidth="630.0">
+                                 <children>
+                                    <Button fx:id="formatButton1" mnemonicParsing="false" onAction="#format" prefHeight="23.0" prefWidth="80.0" text="格式化" GridPane.columnIndex="1" />
+                                    <Button fx:id="compressButton1" mnemonicParsing="false" onAction="#compress" prefHeight="23.0" prefWidth="80.0" text="压缩" />
+                                    <Button fx:id="clearPasteButton1" mnemonicParsing="false" onAction="#clearPaste" prefHeight="23.0" prefWidth="80.0" text="清除&amp;粘贴" GridPane.columnIndex="5" />
+                                    <Button fx:id="clearButton1" mnemonicParsing="false" onAction="#clear" prefHeight="23.0" prefWidth="80.0" text="清除" GridPane.columnIndex="6" />
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+                                    <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+                                    <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                              <TextArea fx:id="inputTextArea1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="150.0" prefWidth="625.0" promptText="请输入">
+                                 <font>
+                                    <Font name="Consolas" size="12.0" />
+                                 </font>
+                              </TextArea>
+                              <GridPane fx:id="G7_21" alignment="TOP_CENTER" maxHeight="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="625.0">
+                                 <children>
+                                    <Button fx:id="changeButton1" maxHeight="-Infinity" mnemonicParsing="false" onAction="#change" prefHeight="23.0" prefWidth="80.0" text="调换" GridPane.columnIndex="1" />
+                                    <Button fx:id="copyButton1" maxHeight="-Infinity" mnemonicParsing="false" onAction="#copy" prefHeight="23.0" prefWidth="80.0" text="复制结果" />
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+                                    <ColumnConstraints halignment="LEFT" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="80.0" prefWidth="80.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="66.0" minWidth="9.0" prefWidth="27.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="317.0" minWidth="10.0" prefWidth="154.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="305.0" minWidth="10.0" prefWidth="45.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="305.0" minWidth="10.0" prefWidth="152.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                              <TextArea fx:id="outputTextArea1" prefHeight="314.0" prefWidth="630.0" promptText="转换结果">
+                                 <font>
+                                    <Font name="Consolas" size="12.0" />
+                                 </font>
+                              </TextArea>
+                           </children>
+                        </VBox>
                      </content></Tab>
               </tabs>
             </TabPane>
