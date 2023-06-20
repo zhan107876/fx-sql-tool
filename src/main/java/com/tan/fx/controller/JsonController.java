@@ -1,7 +1,5 @@
 package com.tan.fx.controller;
 
-import com.tan.fx.service.ChoiceChangeListener;
-import com.tan.fx.service.WinHeightChangeListener;
 import com.tan.fx.utils.JsonFormatUtils;
 import com.tan.fx.utils.StringUtils;
 import javafx.event.ActionEvent;

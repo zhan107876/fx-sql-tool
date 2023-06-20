@@ -2,16 +2,12 @@ package com.tan.fx.controller;
 
 import com.alibaba.druid.sql.SQLUtils;
 import com.tan.fx.service.ChoiceChangeListener;
-import com.tan.fx.service.WinHeightChangeListener;
 import com.tan.fx.utils.StringUtils;
 import com.tan.fx.utils.SymbolUtils;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.fxml.JavaFXBuilderFactory;
-import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.Clipboard;
@@ -279,7 +275,7 @@ public class SqlController implements Initializable {
                     // 最后一个没有逗号
                     stringBuffer.append(SymbolUtils.INDENTATION + firstStr[firstStr.length - 1].trim());
                 }
-                    // 其余部分
+                // 其余部分
                 stringBuffer.append(text.substring(from));
 
                 controller.getOutputTextArea().setText(stringBuffer.toString());

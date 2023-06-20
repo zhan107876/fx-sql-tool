@@ -1,9 +1,6 @@
 package com.tan.fx;
 
-import com.tan.fx.controller.JsonController;
 import com.tan.fx.controller.RootController;
-import com.tan.fx.controller.SqlController;
-import com.tan.fx.service.ChoiceChangeListener;
 import com.tan.fx.service.WinHeightChangeListener;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
