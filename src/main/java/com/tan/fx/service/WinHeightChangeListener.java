@@ -22,15 +22,17 @@ public class WinHeightChangeListener implements ChangeListener<Number> {
     private RootController rootController;
     private SqlController sqlController;
 
-    public WinHeightChangeListener(RootController rootController, SqlController sqlController) {
+    public WinHeightChangeListener(RootController rootController) {
         this.rootController = rootController;
-        this.sqlController = sqlController;
     }
 
     @Override
     public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
         System.out.println("当前高度：" + newValue.doubleValue());
-//        TextArea outputTextArea = null;
+
+        // 需要从注入的内部获取
+        sqlController = rootController.getSqlController();
+
         TextArea outputTextArea = sqlController.getOutputTextArea();
         TextArea inputTextArea = sqlController.getInputTextArea();
 
@@ -48,7 +50,7 @@ public class WinHeightChangeListener implements ChangeListener<Number> {
         p3.setPrefHeight(newValue.doubleValue() - 120);
         p7.setPrefHeight(newValue.doubleValue() - 100);
 
-        double outputTextAreaH = p7.getHeight() - g7_1.getHeight()  - g7_2.getHeight()  - inputTextArea.getHeight() ;
+        double outputTextAreaH = p7.getPrefHeight() - g7_1.getHeight()  - g7_2.getHeight()  - inputTextArea.getHeight() ;
         outputTextArea.setPrefHeight(outputTextAreaH);
 
         // 输入框跟着变小

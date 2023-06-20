@@ -269,17 +269,17 @@ public class SqlController implements Initializable {
                 String sqlKey = firstStr[0].substring(0, firstFieldInx);
 
                 stringBuffer.append(sqlKey + SymbolUtils.LINE_FEED);
-                stringBuffer.append(SymbolUtils.INDENTATION + firstField + SymbolUtils.COMMA + SymbolUtils.LINE_FEED);
-
-                // 中间字段 逗号换行
-                for (int i = 1; i < firstStr.length - 1; i++) {
-                    stringBuffer.append(SymbolUtils.INDENTATION + firstStr[i].trim() + SymbolUtils.COMMA + SymbolUtils.LINE_FEED);
+                stringBuffer.append(SymbolUtils.INDENTATION + firstField);
+                if (firstStr.length > 1) {
+                    stringBuffer.append(SymbolUtils.COMMA + SymbolUtils.LINE_FEED);
+                    // 中间字段 逗号换行
+                    for (int i = 1; i < firstStr.length - 1; i++) {
+                        stringBuffer.append(SymbolUtils.INDENTATION + firstStr[i].trim() + SymbolUtils.COMMA + SymbolUtils.LINE_FEED);
+                    }
+                    // 最后一个没有逗号
+                    stringBuffer.append(SymbolUtils.INDENTATION + firstStr[firstStr.length - 1].trim());
                 }
-
-                // 最后一个没有逗号
-                stringBuffer.append(SymbolUtils.INDENTATION + firstStr[firstStr.length - 1].trim());
-
-                // 其余部分
+                    // 其余部分
                 stringBuffer.append(text.substring(from));
 
                 controller.getOutputTextArea().setText(stringBuffer.toString());

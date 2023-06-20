@@ -37,23 +37,14 @@ public class Main extends Application {
 
         primaryStage.setScene(scene);
 
-
         //Controller中写的初始化方法
         primaryStage.show();
-
 
         /**
          * 高度改变的事件
          * 动态改变窗口高度
          */
-        URL location1 = getClass().getResource("/sqlformatsql.fxml");
-        FXMLLoader fxmlLoader1 = new FXMLLoader();
-        fxmlLoader1.setLocation(location1);
-        fxmlLoader1.setBuilderFactory(new JavaFXBuilderFactory());
-        fxmlLoader1.load();
-        SqlController sqlController = fxmlLoader1.getController();
-
-        scene.getWindow().heightProperty().addListener(new WinHeightChangeListener(rootController, sqlController));
+        scene.getWindow().heightProperty().addListener(new WinHeightChangeListener(rootController ));
     }
 
     private void setIcons(Stage primaryStage) {
